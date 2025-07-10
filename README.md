@@ -12,7 +12,6 @@ Welcome to my money tracker repository! This project showcases my full stack dev
 - [Technologies Used ](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
 - [License](#license)
 - [Contact](#contact)
 
@@ -125,7 +124,7 @@ Git
     yarn dev
     ```
 
-## Usuage
+## Usage
 
 In order to use the application you need a valid account. So after you run the application it directs you to the login page. But since you won't have an account at first, you will see the sign up feature there where you can create your account. Once you are signed up, it will take it to the sign in page and once you signed in the dashboard panel will be displayed along with the side navigation bar. The dashboard page shows the various charts and bar graphs to show your finance i.e income and expenses till date. You can select each month of which you want to see the data of. The transaction panel displays the transaction history in a table. The table can be sorted out as per the date or you can also search your transaction using the description name in the search bar. In order to add a new transaction.You simply need to click add transaction button and fill up the form.
 
