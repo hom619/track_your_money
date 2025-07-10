@@ -41,33 +41,25 @@ export const Dashboard = () => {
 
   useEffect(() => {
     if (transactions.length > 0) {
-      setDisplayTransactions(transactions);
-      updateMonthData(selectedMonth ?? new Date()); // Initial comparison
+      updateMonthData(selectedMonth); // will default to all transactions if null
     }
   }, [transactions]);
 
-  const updateMonthData = (date) => {
-    const selected = date ?? new Date();
+  const updateMonthData = (selectedDate) => {
+    const today = new Date();
+    const selected = selectedDate ?? today;
 
-    const currentStart = new Date(
-      selected.getFullYear(),
-      selected.getMonth(),
-      1
-    );
-    const currentEnd = new Date(
-      selected.getFullYear(),
-      selected.getMonth() + 1,
-      0
-    );
-
+    // Always calculate previous month
+    const prevMonth = new Date(selected);
+    prevMonth.setMonth(prevMonth.getMonth() - 1);
     const previousStart = new Date(
-      selected.getFullYear(),
-      selected.getMonth() - 1,
+      prevMonth.getFullYear(),
+      prevMonth.getMonth(),
       1
     );
     const previousEnd = new Date(
-      selected.getFullYear(),
-      selected.getMonth(),
+      prevMonth.getFullYear(),
+      prevMonth.getMonth() + 1,
       0
     );
 
@@ -88,13 +80,23 @@ export const Dashboard = () => {
 
     setPreviousMonthBalance(prevIncome - prevExpense);
 
-    if (firstLoadRef.current) {
-      // First load — show all transactions
+    if (!selectedDate) {
+      // First load or no month selected — show all transactions
       setDisplayTransactions(transactions);
       setCompareTranLength(transactions.length - previousMonthTrans.length);
-      firstLoadRef.current = false;
     } else {
-      // After first load — filter by selected month
+      // Filter current month transactions
+      const currentStart = new Date(
+        selected.getFullYear(),
+        selected.getMonth(),
+        1
+      );
+      const currentEnd = new Date(
+        selected.getFullYear(),
+        selected.getMonth() + 1,
+        0
+      );
+
       const currentMonthTrans = transactions.filter((t) => {
         const d = new Date(t.tranDate);
         return d >= currentStart && d <= currentEnd;
