@@ -20,7 +20,7 @@ Welcome to my money tracker repository! This project showcases my full stack dev
 
 This project serves as a resume and project showcase which I can put in my portfolio reflecting my experience and learning as a full stack developer. This project is a full stack application that helps in keeping track of your daily finances. It helps to separate your income and expenses and showcase it in different visual representations.
 
-[Visit Live Demo](https://money-tracker-client-black.vercel.app/)
+[Visit Live Demo](https://track-your-money-nine.vercel.app/)
 
 ## Features
 
