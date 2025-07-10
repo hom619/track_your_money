@@ -1,0 +1,69 @@
+### testing api call
+
+### User
+
+###Get User
+GET http://localhost:8000/api/v1/users
+
+
+
+###Post new User
+POST http://localhost:8000/api/v1/users
+Content-Type: application/json
+
+{
+    "name": "Aasish",
+    "email": "aasish@gmail.com",
+    "password": "aasish123"
+}
+
+###Login User
+POST http://localhost:8000/api/v1/users/login
+Content-Type: application/json
+
+{
+    "email": "hom@gmail.com",
+    "password": "123"
+}
+
+
+### Transaction
+
+### Post new Transaction
+POST http://localhost:8000/api/v1/transactions
+Content-Type: application/json
+
+{
+    "type": "income",
+    "title": "Salary",
+    "amount": 1000, 
+    "tranDate": "2023-10-01"
+}
+
+
+### Get All Transactions for a specific user
+
+GET http://localhost:8000/api/v1/transactions
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbUBnbWFpbC5jb20iLCJpYXQiOjE3NDk5ODgyMTYsImV4cCI6MTc1MDA3NDYxNn0.4QrQEqffgsIOAchzTYF6zMeu1ueYGRi465FNCdM1imU
+
+
+### Update Transaction for a specific user
+PATCH http://localhost:8000/api/v1/transactions
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbUBnbWFpbC5jb20iLCJpYXQiOjE3NDk5ODg2ODgsImV4cCI6MTc1MDA3NTA4OH0.c1zz7AVOWHAmb9sUPY1pS5RuOzWehMqTTvU48_bjczE
+
+{
+    "_id": "68305e03aaa6811a5b720421",
+    "type": "expense",
+    "title": "Groceries",
+    "amount": 500,
+    "tranDate": "2023-11-02"
+}
+
+### Delete Transactions for a specific user
+
+DELETE http://localhost:8000/api/v1/transactions
+Content-Type:  application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhvbUBnbWFpbC5jb20iLCJpYXQiOjE3NDg4NzIzODcsImV4cCI6MTc0ODk1ODc4N30.MyYDzFzW-hk_DigQn-KgNwW19EjBRRZUOhUgD0k42-8
+
+["683d8f43cf93be132b9795a4","683d8fa8cf93be132b9795ad"]
